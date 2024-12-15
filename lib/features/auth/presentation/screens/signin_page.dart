@@ -1,9 +1,15 @@
 import 'package:blog_app/core/app_pallete.dart';
+import 'package:blog_app/features/auth/presentation/screens/signup_page.dart';
 import 'package:blog_app/features/auth/presentation/widgets/auth_field.dart';
 import 'package:blog_app/features/auth/presentation/widgets/auth_gradient_button.dart';
 import 'package:flutter/material.dart';
 
 class SigninPage extends StatefulWidget {
+
+  static route() => MaterialPageRoute(
+    builder: (context) => const SigninPage(),
+  );
+
   const SigninPage({super.key});
 
   @override
@@ -52,29 +58,40 @@ class _SigninPageState extends State<SigninPage> {
               ),
               AuthField(
                 hintText: 'Password',
-                controller: passwordController ,
+                controller: passwordController,
                 isObscured: true,
               ),
               const SizedBox(
                 height: 30,
               ),
-              const AuthGradientButton(buttonText: 'Sign In',),
+              const AuthGradientButton(
+                buttonText: 'Sign In',
+              ),
               const SizedBox(
                 height: 30,
               ),
-              RichText(
-                text: TextSpan(
-                  text: 'Don\'t have an account? ',
-                  style: Theme.of(context).textTheme.bodyMedium,
-                  children: [
-                    TextSpan(
-                      text: 'Sign up',
-                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                            color: AppPallete.gradient2,
-                            fontWeight: FontWeight.bold,
-                          ),
-                    ),
-                  ],
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    SignupPage.route(),
+                  );
+                },
+                child: RichText(
+                  text: TextSpan(
+                    text: 'Don\'t have an account? ',
+                    style: Theme.of(context).textTheme.bodyMedium,
+                    children: [
+                      TextSpan(
+                        text: 'Sign up',
+                        style:
+                            Theme.of(context).textTheme.titleMedium?.copyWith(
+                                  color: AppPallete.gradient2,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],

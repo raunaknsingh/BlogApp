@@ -18,5 +18,8 @@ class AppTheme {
       focusedBorder: _border(AppPallete.gradient2),
       enabledBorder: _border(),
     ),
+    appBarTheme: const AppBarTheme(
+      backgroundColor: AppPallete.backgroundColor
+    )
   );
 }
